@@ -3,12 +3,26 @@ A rough equivalent of sourcing .env files in bash
 
 &nbsp;
 
+# What?
+Load shell variables from .env files. As a bonus, unset and cleanup those variables when you're done, so they don't clutter up your shell.
+
+&nbsp;
+
 # Why?
 It is common in Linux and Linux-like shells to store key=value pairs in files which can be easily loaded into the shell's environment. Personally, I deal with dozens of projects on a daily basis which require login credentials, configuration variables, and other information to exist in the shell environment\*. If they do not, the software will not work. When developing those applications, I need an easy way to load the required variables into the shell.
 
 In bash, this is solved by `source .env`. Fish, however, does not use the "key=value" format that bash uses for setting environment variable. If you attempt to `source` a standard .env file in fish, you will generate errors. The fish function in this repository solves that problem.
 
 \* This is for development purposes, and all sensitive information is fake.
+
+&nbsp;
+
+## Quick start
+> source dotenv.fish
+
+> dotenv
+
+I mean, yeah. That's pretty much it. If you know what .env files are, you're ready to go.
 
 &nbsp;
 
@@ -26,7 +40,7 @@ In bash, this is solved by `source .env`. Fish, however, does not use the "key=v
         2) Automatic, sort of
             1) If you have already followed one of the steps under "temporary solutions," you can use `funcsave dotenv` from the command-line to permanently store the function. Fish will put it in the same place as you did in the "manual" steps.
 
-If using the manual solution, you will have to either start a fresh fish shell, or use one of the temporary solutions to load the function into your current session.
+If using the manual solution, dotenv will not be available until you start a new shell. Assuming a standard installation, you can do so by typing `fish` in your existing shell. Alternatively, you can use one of the temporary solutions to load dotenv into your current environment. This is only necessary for your current session; subsequent sessions will already have dotenv available.
 
 &nbsp;
 
