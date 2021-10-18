@@ -55,7 +55,8 @@ Dotenv accepts a small number of command-line options to modify its behavior.
 - -u
     - Unsets the variables found in the environment file. This is very useful for cleanup when you no longer want or need the variables hanging around in your shell.
 - -x
-    - Export the variables and values found in the environment file. This makes them available to sub-processes of the shell. This is probably what you want if you're using the .env file to configure a process you're going to run from the shell.
+    - Force export of the variables and values found in the environment file. This makes them available to sub-processes of the shell. This is probably what you want if you're using the .env file to configure a process you're going to run from the shell.
+    - **Note**: If "export" is included in the .env file, such as `export variable=value`, that variable will be exported regardless of whether or not `-x` is used. The `-x` flag is used to force the export of all variables in a given .env file.
 - .env, .env.dev, etc
     - Anything other than the options above is treated as an environment file. By default, dotenv looks for a file called `.env` in the current directory. However, you can specify any other name(s) you like.
 
