@@ -35,7 +35,7 @@ function dotenv
                     
                     # Check to see if the line we are processing is basically sane. The fish set command will ignore
                     # leading white space on the variable name, so we allow it in our check.
-                    if string match -q --regex -- '^\s*[a-zA-Z0-9_]+=.+?$' "$trimmed_line"
+                    if string match -q --regex -- '^\s*[a-zA-Z0-9_]+=' "$trimmed_line"
                         # Split the current line into name and value, and store them in $kv. We use -m1 because we only
                         # want to split on the first "=" we encounter. Everything after that, including additional "="
                         # characters, is part of the value.
